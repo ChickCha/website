@@ -19,7 +19,7 @@
     <!-- Hero Section -->
     <section class="h-screen flex items-center justify-center relative overflow-hidden hero-gradient">
         <div class="text-center text-white z-10 px-4">
-            <h1 class="text-6xl md:text-8xl mb-7">ថ្ងៃមង្គលអាពាហ៌ពិពាហ៌</h1>
+            <h1 class="text-6xl md:text-8xl mb-6">ថ្ងៃមង្គលអាពាហ៌ពិពាហ៌</h1>
             <h1 class="text-6xl md:text-8xl mb-8">ចាន់ដារ៉ា & ម៉ាលីហ្សា</h1>
             <p class="text-xl md:text-2xl italic mb-8">Save the Date: 24​​​ ឧសភា, 2026</p>
             <a href="#rsvp" class="bg-white text-stone-900 px-8 py-3 rounded-full hover:bg-stone-100 transition-all uppercase tracking-widest text-sm font-semibold">RSVP Now</a>
@@ -29,14 +29,15 @@
     <!-- Countdown Section -->
     <section class="py-20 bg-white">
         <div class="max-w-4xl mx-auto px-4 text-center">
-            <h2 class="text-4xl mb-12">រាប់ថយក្រោយ</h2>
-            <div id="countdown" class="flex justify-center gap-4 md:gap-10 text-stone-700">
-                <div class="flex flex-col"><span id="days" class="text-4xl font-bold">00</span><span class="text-xs uppercase tracking-tighter">ថ្ងៃ</span></div>
-                <div class="flex flex-col"><span id="hours" class="text-4xl font-bold">00</span><span class="text-xs uppercase tracking-tighter">ម៉ោង</span></div>
-                <div class="flex flex-col"><span id="minutes" class="text-4xl font-bold">00</span><span class="text-xs uppercase tracking-tighter">នាទី</span></div>
-                <div class="flex flex-col"><span id="seconds" class="text-4xl font-bold">00</span><span class="text-xs uppercase tracking-tighter">វិនាទី</span></div>
+            <h2 class="text-4xl mb-12">Countdown</h2>
+            <div id="Countdown" class="flex justify-center gap-4 md:gap-10 text-stone-700">
+                <div class="flex flex-col"><span id="Date" class="text-4xl font-bold">00</span><span class="text-xs uppercase tracking-tighter">Date</span></div>
+                <div class="flex flex-col"><span id="hours" class="text-4xl font-bold">00</span><span class="text-xs uppercase tracking-tighter">hours</span></div>
+                <div class="flex flex-col"><span id="minutes" class="text-4xl font-bold">00</span><span class="text-xs uppercase tracking-tighter">minutes</span></div>
+                <div class="flex flex-col"><span id="seconds" class="text-4xl font-bold">00</span><span class="text-xs uppercase tracking-tighter">seconds</span></div>
             </div>
         </div>
+    
     </section>
 
     <!-- Details Section -->
@@ -130,12 +131,14 @@
         import { getFirestore, collection, addDoc, onSnapshot, query, doc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
         import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
 // 1. CONFIG & INIT
-        const firebaseConfig = JSON.parse(__firebase_config);
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-        const auth = getAuth(app);
-        const appId = typeof app_id !== 'undefined' ? app_id : 'wedding-app-2026';
-
+    const firebaseConfig = {
+  apiKey: "AIzaSyD5NROhg-MLnqIJW0jt-BmWX58OV5Qj0NU",
+  authDomain: "website-d4e48.firebaseapp.com",
+  projectId: "website-d4e48",
+  storageBucket: "website-d4e48.firebasestorage.app",
+  messagingSenderId: "346484013222",
+  appId: "1:346484013222:web:35ca64dc6244463c865c67"
+};
         // 2. AUTHENTICATION (Rule 3)
         let currentUser = null;
         const initAuth = async () => {
@@ -152,7 +155,7 @@
                 loadGuestList();
             }
         });
-
+const app = initializeApp(firebaseConfig);
         // 3. COUNTDOWN LOGIC
         const weddingDate = new Date("September 24, 2026 16:00:00").getTime();
         setInterval(() => {
@@ -241,6 +244,6 @@
 
         // Lucide Icons
         document.getElementById('icon-map').innerHTML = <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" dy="10" r="3"/></svg>`;
-    </script>
+    </scrip>
 </body>
 </html>
